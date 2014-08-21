@@ -1,0 +1,32 @@
+<% if @customer.errors.present? %>
+  <p>
+    <h2>There was an error</h2>
+    <% for error in @customer.errors.full_messages %>
+    <%= error %>
+    <% end %>
+  </p>
+<% end %>
+
+<%= form_for [:admin, @customer] do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </p>
+
+  <p>
+    <%= f.label :zip_code %>
+    <%= f.text_field :zip_code %>
+  </p>
+
+  <%= f.submit %>
+<% end %>

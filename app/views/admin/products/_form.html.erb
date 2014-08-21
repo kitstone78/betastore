@@ -1,0 +1,29 @@
+<% if @product.errors.present? %>
+  <p>
+    <h2>There was an error</h2>
+    <% for error in @product.errors.full_messages %>
+    <%= error %>
+    <% end %>
+  </p>
+<% end %>
+
+<%= form_for [:admin, @product], html: {class: "form-horizontal", role: "form"} do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: "col-sm-2 control-label"  %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price, class: "col-sm-2 control-label" %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image_url, class: "col-sm-2 control-label" %>
+    <%= f.url_field :image_url %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Update Product", class: 'btn btn-success' %>
+  </div>
+<% end %>

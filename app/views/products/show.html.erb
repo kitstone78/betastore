@@ -1,0 +1,19 @@
+  <ol class="breadcrumb">
+<h1><%= @product.name %></h1>
+
+<p>
+  Price: <%= number_to_currency @product.price %> </p>
+ 
+  <%= form_for [:admin, @product], html: {class: "form-horizontal", role: "form"} do |f| %>
+ <p>
+  <%= image_tag @product.image_url, alt: @product.name,
+    style: 'max_width: 500px' %></p>
+
+  <p> <%= @product.description %> </p>
+
+<div class="form-group">
+  <%= link_to "Add To Cart", add_to_cart_path(@product.id), class: 'btn btn-success', method: 'post' %>
+</div>
+
+<% end %>
+</ol>
